@@ -11,8 +11,12 @@ export default class extends Component {
   }
   render () {
     const handleSubmit = (event) => {
-      event.preventDefault()
-      console.log(this.state.username + " : " + this.state.password)
+      const payload = {
+        event: event,
+        username: this.state.username,
+        password: this.state.password
+      }
+     this.props.submitHandler(payload)
     }
     // const handleTextChange = (event) => {
     //   this.setState({username: event.target.value})
